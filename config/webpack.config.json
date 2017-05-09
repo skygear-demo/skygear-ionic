@@ -1,0 +1,9 @@
+{
+  "externals": ["react-native"],
+  "output": {
+    "libraryTarget": "umd",
+    "path": "{{BUILD}}",
+    "publicPath": "build/",
+    "filename": "main.js"
+  }
+}
