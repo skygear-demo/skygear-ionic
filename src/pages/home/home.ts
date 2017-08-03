@@ -17,26 +17,31 @@ export class HomePage {
 
   ngOnInit(): void {
     this.skygearService.getSkygear()
-    .then(skygear=> {
-      this.skygear = skygear;
-      this.skygearState = "Configurated";
-    })
-    .catch(error=> {
-      this.skygearState = "Errored";
-    });
+      .then((skygear) => {
+        this.skygear = skygear;
+        this.skygearState = "Configurated";
+      })
+      .catch((error) => {
+        this.skygearState = "Errored";
+      });
   }
 
   addNewRecord() {
     this.skygearService.getSkygear()
-    .then(()=> this.skygear.signupAnonymously())
-    .then(()=> {
-      var Note = this.skygear.Record.extend('Note');
-      return this.skygear.publicDB.save(new Note({
-        'content': 'Hello World'
-      }));
-    })
-    .then((record)=> {
-      this.skygearState = "Saved record: " + record.id;
-    });
+      .then(()=> {
+        return this.skygear.auth.signupAnonymously();
+      })
+      .then((user)=> {
+        var Note = this.skygear.Record.extend('Note');
+        return this.skygear.publicDB.save(new Note({
+          'content': 'Hello World'
+        }));
+      })
+      .then((record)=> {
+        this.skygearState = "Saved record: " + record.id;
+      }, (error) => {
+        console.log(error);
+        this.skygearState = "Saved Error: " + error;
+      });
   }
 }
