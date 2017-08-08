@@ -1,24 +1,32 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+This is a demo project generated using ionic template. The command is as
+follow:
 
-## How to use this template
+`ionic start skygear-ionic tabs`
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+### Running the demo
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+Install `iconic` and `cordava` dependencies.
 
 ```bash
 $ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
+$ sudo npm install -g ios-deploy --unsafe-perm=true
 ```
 
-Then, to run it, cd into `myTabs` and run:
+Then, to run it at browser
+
+```bash
+$ npm install
+$ npm run ionic:serve
+```
+
+The browser should open automatically and you can try to add an Skygear record
+
+
+To run it at iOS device (Assuming you have Xcode properly installed)
 
 ```bash
 $ ionic cordova platform add ios
+$ cd platforms/ios/cordova/ && npm install ios-sim && cd ../../../
 $ ionic cordova run ios
 ```
 
