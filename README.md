@@ -30,5 +30,9 @@ $ cd platforms/ios/cordova/ && npm install ios-sim && cd ../../../
 $ ionic cordova run ios
 ```
 
-Substitute ios for android if not on a Mac.
+To run it at android environment (Assuming you have Android Stuido installed)
 
+```bash
+$ ionic cordova platform add android
+$ ionic cordova run android
+```
