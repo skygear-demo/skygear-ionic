@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {
+  Platform,
+  NavController
+} from 'ionic-angular';
 
 import { SkygearService } from '../../app/skygear.service';
+import {
+  CamPage
+} from '../cam/cam';
+
 
 @Component({
   selector: 'page-home',
@@ -11,8 +18,13 @@ export class HomePage {
   skygear = null;
   skygearState = "Not ready";
 
-  constructor(public navCtrl: NavController, private skygearService: SkygearService) {
-
+  constructor(
+    public platform: Platform,
+    public navCtrl: NavController,
+    private skygearService: SkygearService
+  ) {
+    // No op
+    console.log(this.platform);
   }
 
   ngOnInit(): void {
@@ -43,5 +55,9 @@ export class HomePage {
         console.log(error);
         this.skygearState = "Saved Error: " + error;
       });
+  }
+
+  gotoCam() {
+    this.navCtrl.push(CamPage);
   }
 }
