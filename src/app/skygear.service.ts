@@ -11,8 +11,13 @@ export class SkygearService {
     let promise = skygear.config({
       'endPoint': 'https://skygearangular.skygeario.com/', // trailing slash is required
       'apiKey': '8397832bcb9d4c57b5833b532ef1a77c',
+    }).then(()=> {
+      return skygear.auth.signupAnonymously();
+    }).then(() => {
+      this.isConfigurated = true
     });
-    promise.then(()=> this.isConfigurated = true);
     return promise;
   }
 }
+
+export const Note = skygear.Record.extend('Note');

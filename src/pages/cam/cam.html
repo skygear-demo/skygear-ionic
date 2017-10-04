@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Camera Example</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Demo of Camera</h2>
+  <p>
+    This is example to upload a picture from camera to Skygear Asset.
+  </p>
+  <p>
+    <button (click)="takePicture()">Take picture</button>
+  </p>
+
+  <p>Preview of latest picture
+    <img [src]="base64Image" *ngIf="base64Image" />
+  </p>
+
+  <p>Link of the image
+    <a href="{{ photoURL }}">
+      {{ photoURL }}
+    </a>
+  </p>
+
+</ion-content>
