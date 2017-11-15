@@ -11,6 +11,9 @@ import {
 import {
   CamPage
 } from '../cam/cam';
+import {
+  PushPage
+} from '../push/push';
 
 
 @Component({
@@ -58,5 +61,9 @@ export class HomePage {
 
   gotoCam() {
     this.navCtrl.push(CamPage);
+  }
+
+  gotoPush() {
+    this.navCtrl.push(PushPage);
   }
 }

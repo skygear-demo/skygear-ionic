@@ -8,11 +8,13 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { CamPage } from '../pages/cam/cam';
+import { PushPage } from '../pages/push/push';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
+import { Push } from '@ionic-native/push';
 
 import { SkygearService } from './skygear.service';
 
@@ -24,6 +26,7 @@ import { SkygearService } from './skygear.service';
     HomePage,
     TabsPage,
     CamPage,
+    PushPage,
   ],
   imports: [
     BrowserModule,
@@ -37,11 +40,13 @@ import { SkygearService } from './skygear.service';
     HomePage,
     TabsPage,
     CamPage,
+    PushPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
+    Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SkygearService,
   ]

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Push Example</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Demo of Push notification</h2>
+  <p>
+    This is example get and send the device token to Skygear
+  </p>
+
+
+  <p>
+    Device ID of Skygear: {{ deviceID }}
+  </p>
+
+  <p>
+    Device Token Skygear got: {{ deviceToken }}
+  </p>
+
+  <p>
+    <input type="text"
+      placeholder="default"
+      [(ngModel)]="message">
+    <button (click)="sendToThis()">Send a loopback Push</button>
+  </p>
+
+  <p>
+    <label>Device ID</label>
+    <input type="text"
+      [(ngModel)]="targetDevice">
+  </p>
+  <p>
+    <label>Message body</label>
+    <input type="text"
+      placeholder="default"
+      [(ngModel)]="targetMessage">
+  </p>
+  <p>
+    <button (click)="sendToOther()">Send to other device</button>
+  </p>
+
+  <p *ngIf="notificationPayload">
+    Got notification<br/>
+    {{ notificationPayload }}
+  </p>
+
+</ion-content>
